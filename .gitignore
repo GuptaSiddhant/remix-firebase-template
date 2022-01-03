@@ -1,0 +1,10 @@
+node_modules
+
+/.cache
+/functions/build
+/public/build
+.env
+
+*.log
+*.cache
+.firebase/
