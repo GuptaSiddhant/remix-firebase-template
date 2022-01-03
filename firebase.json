@@ -1,6 +1,6 @@
 {
   "functions": {
-    "predeploy": "npm run build",
+    "predeploy": "npm run build; rm functions/yarn.lock || true",
     "source": "functions"
   },
   "hosting": {
