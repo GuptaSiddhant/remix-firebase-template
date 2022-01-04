@@ -7,11 +7,23 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Check Firebase Token
+        run: if [ -z "${{ secrets.FIREBASE_TOKEN }}" ]; then exit 1; fi
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
           node-version: "16"
-      - run: npm install -g firebase-tools
-      - run: npm install
-      - run: npm --prefix ./functions install ./functions
-      - run: firebase deploy --debug --non-interactive --token "${{ secrets.FIREBASE_TOKEN }}"
+
+      - name: Install Firebase Tools
+        run: npm install -g firebase-tools
+      - name: Install root dependencies
+        run: npm install
+      - name: Install functions dependencies
+        run: npm --prefix ./functions install ./functions
+
+      - name: Deploy app
+        run: firebase deploy --debug --non-interactive --token "${{ secrets.FIREBASE_TOKEN }}"

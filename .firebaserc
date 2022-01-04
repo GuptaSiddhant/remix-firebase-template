@@ -1,5 +1,5 @@
 {
   "projects": {
-    "default": "guptasiddhant-com"
+    "default": "YOUR_FIREBASE_PROJECT_ID_HERE"
   }
 }
