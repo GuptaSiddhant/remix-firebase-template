@@ -1,12 +1,8 @@
 node_modules
-
-/.cache
-/public/build
-.env
+build
 
 *.log
 *.cache
-/functions/build
+/.cache
+.env
 .firebase/
-/functions/yarn.lock
-/functions/package-lock.json

@@ -1,24 +1,31 @@
 {
   "functions": {
     "predeploy": "npm run build; rm functions/yarn.lock || true",
-    "source": "functions"
+    "source": ".",
+    "ignore": [
+      "**/node_modules/**",
+      "**/src/**",
+      "**/public/**",
+      "**/.firebase/**",
+      "**/.cache/**"
+    ]
   },
   "hosting": {
     "public": "public",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "**/build/**"],
     "rewrites": [
       {
         "source": "**",
-        "function": "remix"
+        "function": "app"
       }
     ]
   },
   "emulators": {
+    "hosting": {
+      "port": 3000
+    },
     "functions": {
       "port": 5001
-    },
-    "hosting": {
-      "port": 4321
     },
     "ui": {
       "enabled": true
