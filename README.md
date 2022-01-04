@@ -99,6 +99,25 @@ The name of the secret must be `FIREBASE_TOKEN` and value should be the TOKEN th
 
 > Similar configuration can be created for deploying to other CI.
 
+## Remove Tailwind
+
+Tailwind is a great tool but maybe not for everyone. Removing it is easy.
+
+- Delete `tailwind.config.js` file from the root of the directory.
+- In `package.json`,
+
+  - remove `tailwindcss` from devDependencies.
+  - remove script `build:css`, `dev:css` and `prebuild`
+  - replace `dev` script with:
+
+    ```json
+    "dev": "concurrently \"npm run dev:remix\" \"npm run start\""
+    ```
+
+- In `app/root.tsx`,
+  - remove import statement for `tailwindStyles`
+  - remove stylesheet object from `links` function (where `tailwindStyles` is used).
+
 ## Contact
 
 For any clarification and assistant, contact me:
