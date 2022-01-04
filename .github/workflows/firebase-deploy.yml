@@ -13,4 +13,4 @@ jobs:
           node-version: "16"
       - run: npm install -g firebase-tools
       - run: npm ci
-      - run: firebase --project "guptasiddhant-com" --token ${{ secrets.FIREBASE_SERVICE_ACCOUNT_GUPTASIDDHANT_COM }} deploy
+      - run: firebase deploy --project "guptasiddhant-com" --non-interactive --token "${{ secrets.FIREBASE_TOKEN }}"
