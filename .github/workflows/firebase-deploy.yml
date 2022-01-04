@@ -15,6 +15,6 @@ jobs:
         with:
           node-version: "16"
       - name: Setup
-        run: npm install
+        run: npm i -g firebase-tools; npm install
       - name: Deploy
-        run: firebase deploy --project "guptasiddhant-com" --token ${{ secrets.FIREBASE_SERVICE_ACCOUNT_GUPTASIDDHANT_COM }}
+        run: npm run deploy --token ${{ secrets.FIREBASE_SERVICE_ACCOUNT_GUPTASIDDHANT_COM }}
