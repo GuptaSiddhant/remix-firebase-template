@@ -1,19 +1,21 @@
 {
   "private": true,
-  "name": "remix-firebase-app-template",
+  "name": "remix-firebase-template",
   "description": "",
   "license": "",
   "main": "firebase-functions.js",
   "scripts": {
     "build": "remix build",
-    "prebuild": "tailwindcss -o ./app/styles/tailwind.css",
-    "start": "firebase emulators:start",
-    "dev": "concurrently \"npm run dev:css\" \"npm run dev:remix\" \"npm run start\"",
-    "dev:css": "tailwindcss -o ./app/styles/tailwind.css --watch",
-    "dev:remix": "remix watch",
+    "build:css": "tailwindcss -o ./app/tailwind.css",
+    "clear": "rimraf .cache/ .firebase/ build/ public/build/ *.log",
     "deploy": "firebase deploy",
-    "kill": "npx kill-port 5000 5001 8080 8085 4000 9229",
-    "postinstall": "remix setup node"
+    "dev": "concurrently \"npm run dev:css\" \"npm run dev:remix\" \"npm run start\"",
+    "dev:css": "npm run build:css --watch",
+    "dev:remix": "remix watch",
+    "postinstall": "remix setup node",
+    "prebuild": "npm run build:css",
+    "predeploy": "rimraf yarn.lock package-lock.json",
+    "start": "firebase emulators:start"
   },
   "dependencies": {
     "@remix-run/react": "^1.1.1",
@@ -26,13 +28,10 @@
   },
   "devDependencies": {
     "@remix-run/dev": "^1.1.1",
-    "@tailwindcss/aspect-ratio": "^0.4.0",
-    "@tailwindcss/forms": "^0.4.0",
-    "@tailwindcss/typography": "^0.5.0",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
-    "firebase-functions-test": "^0.2.0",
     "concurrently": "^7.0.0",
+    "rimraf": "^3.0.2",
     "tailwindcss": "^3.0.0",
     "typescript": "^4.1.2"
   },

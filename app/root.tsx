@@ -8,7 +8,7 @@ import {
   ScrollRestoration,
 } from "remix";
 import type { MetaFunction } from "remix";
-import tailwindStyles from "./styles/tailwind.css";
+import tailwindStyles from "./tailwind.css";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", type: "text/css", href: tailwindStyles },

@@ -1,18 +1,28 @@
 {
   "functions": {
-    "predeploy": "npm run build; rm functions/yarn.lock || true",
+    "predeploy": "npm run build",
     "source": ".",
     "ignore": [
       "**/node_modules/**",
       "**/src/**",
       "**/public/**",
       "**/.firebase/**",
-      "**/.cache/**"
+      "**/.cache/**",
+      "**/.*",
+      "tsconfig.json",
+      "remix.config.js",
+      "tailwind.config.js",
+      "**/*.d.ts"
     ]
   },
   "hosting": {
     "public": "public",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "**/build/**"],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "/build/**"
+    ],
     "rewrites": [
       {
         "source": "**",
