@@ -1,28 +1,11 @@
 {
   "functions": {
     "predeploy": "npm run build",
-    "source": ".",
-    "ignore": [
-      "**/node_modules/**",
-      "**/src/**",
-      "**/public/**",
-      "**/.firebase/**",
-      "**/.cache/**",
-      "**/.*",
-      "tsconfig.json",
-      "remix.config.js",
-      "tailwind.config.js",
-      "**/*.d.ts"
-    ]
+    "source": "functions"
   },
   "hosting": {
     "public": "public",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**",
-      "/build/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "/build/**"],
     "rewrites": [
       {
         "source": "**",

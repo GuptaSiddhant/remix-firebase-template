@@ -12,6 +12,6 @@ jobs:
         with:
           node-version: "16"
       - run: npm install -g firebase-tools
-      - run: npm ci
-      - run: rm package-lock.json
+      - run: npm install
+      - run: npm --prefix ./functions install ./functions
       - run: firebase deploy --debug --non-interactive --token "${{ secrets.FIREBASE_TOKEN }}"
